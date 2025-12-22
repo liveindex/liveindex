@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker-compose up:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker --version:*)",
+      "Bash(docker info:*)",
+      "Bash(python3:*)",
+      "Bash(source venv/bin/activate)",
+      "Bash(pip install:*)",
+      "Bash(docker pull:*)",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(cat:*)",
+      "Bash(timeout 5 python3:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(./node_modules/.bin/tailwindcss:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}
