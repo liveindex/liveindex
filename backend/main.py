@@ -102,8 +102,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Retriever",
-    description="Real-time retrieval infrastructure for enterprise RAG",
+    title="LiveIndex",
+    description="Real-time knowledge infrastructure for AI",
     version="0.1.0",
     lifespan=lifespan,
 )

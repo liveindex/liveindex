@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/LiveIndex-Real--time_RAG-blue?style=for-the-badge" alt="LiveIndex" />
+  <img src="https://img.shields.io/badge/LiveIndex-Knowledge_Infrastructure-blue?style=for-the-badge" alt="LiveIndex" />
 </p>
 
 <h1 align="center">LiveIndex</h1>
@@ -31,11 +31,11 @@
 
 ## What is LiveIndex?
 
-LiveIndex is **real-time RAG infrastructure** that keeps your AI grounded in reality. When documents change, your AI knows immediately—not hours later, not after a batch job, but in seconds.
+LiveIndex is **real-time knowledge infrastructure** that keeps your AI grounded in reality. When documents change, your AI knows immediately—not hours later, not after a batch job, but in seconds.
 
-**The problem:** Traditional RAG pipelines are batch-oriented. Documents get stale. Answers become wrong. Users lose trust.
+**The problem:** Traditional knowledge pipelines are batch-oriented. Documents get stale. Answers become wrong. Users lose trust.
 
-**The solution:** LiveIndex watches your documents, detects changes instantly, re-indexes on the fly, and serves fresh answers with sub-100ms latency.
+**The solution:** LiveIndex watches your knowledge sources, detects changes instantly, re-indexes on the fly, and serves fresh answers with sub-100ms latency.
 
 ---
 
@@ -70,7 +70,7 @@ LiveIndex is **real-time RAG infrastructure** that keeps your AI grounded in rea
 ### 1. Clone and configure
 
 ```bash
-git clone https://github.com/yourusername/liveindex.git
+git clone https://github.com/liveindex/liveindex.git
 cd liveindex
 
 # Add your OpenAI API key

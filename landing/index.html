@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LiveIndex - Real-time Knowledge Infrastructure for AI</title>
-  <meta name="description" content="Real-time RAG infrastructure that keeps your AI in sync with your knowledge. Deploy anywhere.">
+  <meta name="description" content="Real-time knowledge infrastructure that keeps your AI in sync. All your knowledge. Always in sync. Always secure. Deploy anywhere.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwindcss.config = {
@@ -23,23 +23,23 @@
   <style>
     body { font-family: 'Inter', sans-serif; }
     .gradient-text {
-      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #db2777 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .glow {
-      box-shadow: 0 0 60px rgba(96, 165, 250, 0.3);
+    .glow-light {
+      box-shadow: 0 0 60px rgba(99, 102, 241, 0.15);
     }
     .code-block {
       background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased">
+<body class="bg-slate-50 text-slate-900 antialiased min-h-screen">
 
   <!-- Nav -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 bg-gradient-to-br from-blue-500 via-violet-500 to-fuchsia-500 rounded-lg flex items-center justify-center">
@@ -47,12 +47,12 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
-        <span class="text-xl font-bold">LiveIndex</span>
+        <span class="text-xl font-bold text-slate-900">LiveIndex</span>
       </div>
       <div class="flex items-center gap-4">
-        <a href="#features" class="text-sm text-slate-400 hover:text-white transition-colors">Features</a>
-        <a href="#quickstart" class="text-sm text-slate-400 hover:text-white transition-colors">Quick Start</a>
-        <a href="https://github.com" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-medium transition-colors">
+        <a href="#features" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">Features</a>
+        <a href="#quickstart" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">Quick Start</a>
+        <a href="https://github.com/liveindex/liveindex" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-sm font-medium transition-colors">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           GitHub
         </a>
@@ -64,9 +64,9 @@
   <section class="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
     <div class="text-center max-w-4xl mx-auto">
       <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 border border-slate-700/50 rounded-full text-sm text-slate-300 mb-8">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-600 mb-8 shadow-sm">
         <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-        Open Source RAG Infrastructure
+        Real-time knowledge infrastructure for AI
       </div>
 
       <!-- Logo + Title -->
@@ -75,7 +75,7 @@
       </h1>
 
       <!-- Tagline -->
-      <p class="text-2xl md:text-3xl text-slate-300 font-medium mb-4">
+      <p class="text-2xl md:text-3xl text-slate-600 font-medium mb-4">
         Real-time knowledge infrastructure for AI
       </p>
 
@@ -86,10 +86,10 @@
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="#quickstart" class="px-8 py-4 bg-gradient-to-r from-blue-500 via-violet-500 to-fuchsia-500 hover:from-blue-600 hover:via-violet-600 hover:to-fuchsia-600 rounded-xl text-lg font-semibold transition-all shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40">
+        <a href="#quickstart" class="px-8 py-4 bg-gradient-to-r from-blue-500 via-violet-500 to-fuchsia-500 hover:from-blue-600 hover:via-violet-600 hover:to-fuchsia-600 text-white rounded-xl text-lg font-semibold transition-all shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40">
           Get Started
         </a>
-        <a href="https://github.com" target="_blank" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-lg font-semibold transition-all flex items-center gap-3">
+        <a href="https://github.com/liveindex/liveindex" target="_blank" class="px-8 py-4 bg-white hover:bg-slate-50 border border-slate-300 text-slate-900 rounded-xl text-lg font-semibold transition-all flex items-center gap-3 shadow-sm">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           Star on GitHub
         </a>
@@ -98,18 +98,17 @@
 
     <!-- Demo GIF Placeholder -->
     <div class="w-full max-w-5xl mx-auto">
-      <div class="relative rounded-2xl overflow-hidden glow">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-violet-500/10 to-fuchsia-500/10"></div>
-        <div class="aspect-video bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-center">
+      <div class="relative rounded-2xl overflow-hidden glow-light">
+        <div class="aspect-video bg-white border border-slate-200 rounded-2xl flex items-center justify-center shadow-xl">
           <div class="text-center">
-            <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-slate-800 flex items-center justify-center">
-              <svg class="w-10 h-10 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-slate-100 flex items-center justify-center">
+              <svg class="w-10 h-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <p class="text-slate-500 text-lg">Demo GIF coming soon</p>
-            <p class="text-slate-600 text-sm mt-2">Edit a document. Watch AI update in real-time.</p>
+            <p class="text-slate-600 text-lg">Demo GIF coming soon</p>
+            <p class="text-slate-400 text-sm mt-2">Edit a document. Watch AI update in real-time.</p>
           </div>
         </div>
       </div>
@@ -120,11 +119,11 @@
   <section id="quickstart" class="py-32 px-6">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-4">Quick Start</h2>
-        <p class="text-slate-400 text-lg">Up and running in 30 seconds</p>
+        <h2 class="text-4xl font-bold text-slate-900 mb-4">Quick Start</h2>
+        <p class="text-slate-500 text-lg">Up and running in 30 seconds</p>
       </div>
 
-      <div class="code-block rounded-2xl p-6 border border-slate-800">
+      <div class="code-block rounded-2xl p-6 border border-slate-700 shadow-xl">
         <div class="flex items-center gap-2 mb-4">
           <div class="w-3 h-3 rounded-full bg-red-500"></div>
           <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -134,7 +133,7 @@
         <div class="font-mono text-sm md:text-base space-y-3">
           <div class="flex items-start gap-3">
             <span class="text-emerald-400 select-none">$</span>
-            <code class="text-slate-300">git clone https://github.com/yourusername/liveindex.git</code>
+            <code class="text-slate-300">git clone https://github.com/liveindex/liveindex.git</code>
           </div>
           <div class="flex items-start gap-3">
             <span class="text-emerald-400 select-none">$</span>
@@ -144,7 +143,7 @@
             <span class="text-emerald-400 select-none">$</span>
             <code class="text-slate-300">open http://localhost:3000</code>
           </div>
-          <div class="mt-4 pt-4 border-t border-slate-800">
+          <div class="mt-4 pt-4 border-t border-slate-700">
             <span class="text-slate-500"># That's it. Drop documents in /documents and start querying.</span>
           </div>
         </div>
@@ -153,62 +152,62 @@
   </section>
 
   <!-- Features -->
-  <section id="features" class="py-32 px-6 bg-slate-900/50">
+  <section id="features" class="py-32 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4">Built for Production</h2>
-        <p class="text-slate-400 text-lg">Everything you need to keep AI grounded in reality</p>
+        <h2 class="text-4xl font-bold text-slate-900 mb-4">Built for Production</h2>
+        <p class="text-slate-500 text-lg">Everything you need to keep AI grounded in reality</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6">
         <!-- Real-time Sync -->
-        <div class="group p-8 bg-slate-900 border border-slate-800 rounded-2xl hover:border-blue-500/50 transition-all">
+        <div class="group p-8 bg-slate-50 border border-slate-200 rounded-2xl hover:border-blue-400 hover:shadow-lg transition-all">
           <div class="w-14 h-14 mb-6 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-            <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Real-time Sync</h3>
-          <p class="text-slate-400 leading-relaxed">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Real-time Sync</h3>
+          <p class="text-slate-600 leading-relaxed">
             Edit a document, see it reflected in AI responses within seconds. No batch jobs. No stale answers. File watcher detects changes and re-indexes instantly.
           </p>
         </div>
 
         <!-- Permissions -->
-        <div class="group p-8 bg-slate-900 border border-slate-800 rounded-2xl hover:border-violet-500/50 transition-all">
+        <div class="group p-8 bg-slate-50 border border-slate-200 rounded-2xl hover:border-violet-400 hover:shadow-lg transition-all">
           <div class="w-14 h-14 mb-6 rounded-xl bg-gradient-to-br from-violet-500/20 to-purple-500/20 flex items-center justify-center">
-            <svg class="w-7 h-7 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-7 h-7 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Permission-Aware</h3>
-          <p class="text-slate-400 leading-relaxed">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Permission-Aware</h3>
+          <p class="text-slate-600 leading-relaxed">
             Role-based access control built in. Employees see public docs, managers see team docs, admins see everything. Your AI respects your org structure.
           </p>
         </div>
 
         <!-- Deploy Anywhere -->
-        <div class="group p-8 bg-slate-900 border border-slate-800 rounded-2xl hover:border-emerald-500/50 transition-all">
+        <div class="group p-8 bg-slate-50 border border-slate-200 rounded-2xl hover:border-emerald-400 hover:shadow-lg transition-all">
           <div class="w-14 h-14 mb-6 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
-            <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-7 h-7 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Deploy Anywhere</h3>
-          <p class="text-slate-400 leading-relaxed">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Deploy Anywhere</h3>
+          <p class="text-slate-600 leading-relaxed">
             Docker Compose for local dev. Kubernetes for production. Air-gapped environments supported. Your data never leaves your infrastructure.
           </p>
         </div>
 
         <!-- Open Source -->
-        <div class="group p-8 bg-slate-900 border border-slate-800 rounded-2xl hover:border-fuchsia-500/50 transition-all">
+        <div class="group p-8 bg-slate-50 border border-slate-200 rounded-2xl hover:border-fuchsia-400 hover:shadow-lg transition-all">
           <div class="w-14 h-14 mb-6 rounded-xl bg-gradient-to-br from-fuchsia-500/20 to-pink-500/20 flex items-center justify-center">
-            <svg class="w-7 h-7 text-fuchsia-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-7 h-7 text-fuchsia-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-3">Open Source</h3>
-          <p class="text-slate-400 leading-relaxed">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Open Source</h3>
+          <p class="text-slate-600 leading-relaxed">
             MIT licensed. Fork it, extend it, contribute back. Connector plugins for Google Drive, S3, Notion, Slack, Confluence. Add your own in hours.
           </p>
         </div>
@@ -217,11 +216,11 @@
   </section>
 
   <!-- CTA -->
-  <section class="py-32 px-6">
+  <section class="py-32 px-6 bg-slate-50">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to keep your AI in sync?</h2>
-      <p class="text-xl text-slate-400 mb-10">Star us on GitHub and get started in minutes.</p>
-      <a href="https://github.com" target="_blank" class="inline-flex items-center gap-3 px-10 py-5 bg-white hover:bg-slate-100 text-slate-900 rounded-xl text-xl font-bold transition-all shadow-2xl shadow-white/10">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Ready to keep your AI in sync?</h2>
+      <p class="text-xl text-slate-500 mb-10">Star us on GitHub and get started in minutes.</p>
+      <a href="https://github.com/liveindex/liveindex" target="_blank" class="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xl font-bold transition-all shadow-xl">
         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         Star on GitHub
       </a>
@@ -229,7 +228,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 px-6 border-t border-slate-800">
+  <footer class="py-12 px-6 border-t border-slate-200 bg-white">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="w-8 h-8 bg-gradient-to-br from-blue-500 via-violet-500 to-fuchsia-500 rounded-lg flex items-center justify-center">
@@ -237,16 +236,16 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
-        <span class="font-bold">LiveIndex</span>
-        <span class="text-slate-600">|</span>
-        <span class="text-slate-500 text-sm">Real-time RAG infrastructure</span>
+        <span class="font-bold text-slate-900">LiveIndex</span>
+        <span class="text-slate-300">|</span>
+        <span class="text-slate-500 text-sm">Real-time knowledge infrastructure for AI</span>
       </div>
       <div class="flex items-center gap-8 text-sm">
-        <a href="#" class="text-slate-400 hover:text-white transition-colors">Documentation</a>
-        <a href="#" class="text-slate-400 hover:text-white transition-colors">API Reference</a>
-        <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-white transition-colors">GitHub</a>
+        <a href="#" class="text-slate-500 hover:text-slate-900 transition-colors">Documentation</a>
+        <a href="#" class="text-slate-500 hover:text-slate-900 transition-colors">API Reference</a>
+        <a href="https://github.com/liveindex/liveindex" target="_blank" class="text-slate-500 hover:text-slate-900 transition-colors">GitHub</a>
       </div>
-      <div class="text-slate-600 text-sm">
+      <div class="text-slate-400 text-sm">
         MIT License
       </div>
     </div>
