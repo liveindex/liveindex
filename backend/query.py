@@ -1,7 +1,8 @@
 """
-Query pipeline: Embed → Search → Format with Sources
+Query pipeline: Embed → Search → LLM Answer → Format with Sources
 
-This module handles vector search queries against the document index.
+This module handles vector search queries against the document index
+and generates answers using GPT-4o-mini.
 """
 
 import os
@@ -9,13 +10,21 @@ import time
 import logging
 from typing import List, Dict, Optional
 
+from openai import OpenAI
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
 from qdrant_client.http.exceptions import UnexpectedResponse
+from dotenv import load_dotenv
 
 from embeddings import get_embedding
 
+load_dotenv()
+
 logger = logging.getLogger(__name__)
+
+# Initialize OpenAI client for answer generation
+openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+LLM_MODEL = "gpt-4o-mini"
 
 # Configuration
 COLLECTION_NAME = "documents"
@@ -87,13 +96,8 @@ async def search_documents(query: str, top_k: int = 5) -> Dict:
         })
         context_chunks.append(payload.get("chunk_text", ""))
 
-    # Build answer from top results
-    # For now, we return the most relevant chunk as the answer
-    # In a production system, you'd use an LLM to synthesize an answer
-    top_chunk = context_chunks[0] if context_chunks else ""
-
-    # Create a simple answer by highlighting the most relevant content
-    answer = generate_answer(query, context_chunks)
+    # Generate answer using LLM
+    answer = await generate_answer(query, context_chunks, sources)
 
     elapsed_ms = (time.time() - start_time) * 1000
     logger.info(f"Query '{query[:50]}...' returned {len(sources)} results in {elapsed_ms:.1f}ms")
@@ -105,16 +109,14 @@ async def search_documents(query: str, top_k: int = 5) -> Dict:
     }
 
 
-def generate_answer(query: str, context_chunks: List[str]) -> str:
+async def generate_answer(query: str, context_chunks: List[str], sources: List[Dict]) -> str:
     """
-    Generate an answer from the retrieved context chunks.
-
-    For the demo, we use a simple extraction approach.
-    In production, this would use an LLM to synthesize the answer.
+    Generate an answer from the retrieved context chunks using GPT-4o-mini.
 
     Args:
         query: The user's query
         context_chunks: Retrieved text chunks
+        sources: Source information for citations
 
     Returns:
         Generated answer string
@@ -122,18 +124,50 @@ def generate_answer(query: str, context_chunks: List[str]) -> str:
     if not context_chunks:
         return "No relevant information found."
 
-    # For demo purposes, return the top chunk with context
-    # This could be enhanced with an LLM call for better answers
-    top_chunk = context_chunks[0]
+    # Build context with source references
+    context_parts = []
+    for i, (chunk, source) in enumerate(zip(context_chunks, sources), 1):
+        context_parts.append(f"[Source {i}: {source['file']}]\n{chunk}")
 
-    # Clean up the chunk for presentation
-    answer = top_chunk.strip()
+    context = "\n\n---\n\n".join(context_parts)
 
-    # If we have multiple relevant chunks, indicate there's more
-    if len(context_chunks) > 1:
-        answer += f"\n\n[{len(context_chunks) - 1} additional relevant sections found]"
+    system_prompt = """You are a helpful assistant that answers questions based only on the provided context.
 
-    return answer
+Instructions:
+- Answer the user's question using ONLY the information from the provided context
+- Be concise and direct
+- If the context doesn't contain enough information to answer, say so
+- Cite sources by referencing them like [Source 1] or [Source 2] when using information from them
+- Do not make up information that isn't in the context"""
+
+    user_prompt = f"""Context:
+{context}
+
+---
+
+Question: {query}
+
+Answer:"""
+
+    try:
+        response = openai_client.chat.completions.create(
+            model=LLM_MODEL,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0.3,
+            max_tokens=500,
+        )
+
+        answer = response.choices[0].message.content.strip()
+        logger.info(f"Generated answer using {LLM_MODEL}")
+        return answer
+
+    except Exception as e:
+        logger.error(f"Error generating answer with LLM: {e}")
+        # Fallback to simple extraction if LLM fails
+        return context_chunks[0].strip() if context_chunks else "Error generating answer."
 
 
 async def get_document_count() -> int:

@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  All your knowledge. Always in sync. Always secure. Deploy anywhere.
+  The knowledge layer for AI applications and agents. Always in sync. Always secure.
 </p>
 
 <p align="center">
@@ -52,6 +52,7 @@ LiveIndex is **real-time knowledge infrastructure** that keeps your AI grounded 
 
 - **Real-time Sync** — File watcher detects changes, re-indexes in milliseconds, not minutes
 - **Permission-Aware** — Role-based access control. Employees see public docs, admins see everything
+- **Agent-Ready** — Works as a tool for LangChain, LlamaIndex, or custom AI agents
 - **Deploy Anywhere** — Docker Compose for dev, Kubernetes for prod, air-gapped supported
 - **Connector Plugins** — Local files, Google Drive, S3, Notion, Slack, Confluence (extensible)
 - **Sub-100ms Queries** — Qdrant vector search with OpenAI embeddings
