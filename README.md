@@ -41,9 +41,13 @@ LiveIndex is **real-time knowledge infrastructure** that keeps your AI grounded 
 
 ## Demo
 
-<!-- Replace with your demo GIF -->
 <p align="center">
-  <em>Demo GIF coming soon — edit a document, watch AI update in real-time</em>
+  <a href="https://youtu.be/CW411Lb5Z1k">
+    <img src="https://img.youtube.com/vi/CW411Lb5Z1k/maxresdefault.jpg" alt="LiveIndex Demo" width="600" />
+  </a>
+</p>
+<p align="center">
+  <em>Click to watch 3-min demo</em>
 </p>
 
 ---
