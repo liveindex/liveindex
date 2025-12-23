@@ -29,6 +29,17 @@ LLM_MODEL = "gpt-4o-mini"
 # Configuration
 COLLECTION_NAME = "documents"
 
+# Document permission levels (mirrors frontend)
+# Level 1 = Employee (public), Level 2 = Manager, Level 3 = Admin
+DOCUMENT_PERMISSIONS = {
+    'policies/employee-handbook.md': 2,  # Manager+ only
+    'policies/security-guidelines.md': 3,  # Admin only
+}
+
+def get_document_permission_level(file_path: str) -> int:
+    """Get the required permission level for a document. Default is 1 (public)."""
+    return DOCUMENT_PERMISSIONS.get(file_path, 1)
+
 
 def get_qdrant_client() -> QdrantClient:
     """Get Qdrant client instance."""
@@ -37,7 +48,7 @@ def get_qdrant_client() -> QdrantClient:
     return QdrantClient(host=host, port=port)
 
 
-async def search_documents(query: str, top_k: int = 5) -> Dict:
+async def search_documents(query: str, top_k: int = 5, role_level: int = 1) -> Dict:
     """
     Search for documents matching the query.
 
@@ -66,11 +77,11 @@ async def search_documents(query: str, top_k: int = 5) -> Dict:
     # Get embedding for the query
     query_embedding = await get_embedding(query)
 
-    # Search Qdrant
+    # Search Qdrant - fetch more results to account for permission filtering
     search_results = client.search(
         collection_name=COLLECTION_NAME,
         query_vector=query_embedding,
-        limit=top_k,
+        limit=top_k * 3,  # Fetch extra to have enough after filtering
         with_payload=True,
     )
 
@@ -82,19 +93,43 @@ async def search_documents(query: str, top_k: int = 5) -> Dict:
             "latency_ms": elapsed_ms,
         }
 
-    # Format sources
+    # Format sources - filter by permission level BEFORE sending to LLM
     sources = []
     context_chunks = []
+    restricted_count = 0
 
     for result in search_results:
         payload = result.payload
-        sources.append({
-            "file": payload.get("file_path", "unknown"),
-            "chunk": payload.get("chunk_text", ""),
-            "score": round(result.score, 4),
-            "updated_at": payload.get("updated_at", ""),
-        })
-        context_chunks.append(payload.get("chunk_text", ""))
+        file_path = payload.get("file_path", "unknown")
+
+        # Check if user has permission to see this document
+        required_level = get_document_permission_level(file_path)
+        if role_level < required_level:
+            restricted_count += 1
+            logger.debug(f"Filtered out {file_path} (requires level {required_level}, user has {role_level})")
+            continue
+
+        # Only include permitted documents
+        if len(sources) < top_k:  # Respect original top_k limit
+            sources.append({
+                "file": file_path,
+                "chunk": payload.get("chunk_text", ""),
+                "score": round(result.score, 4),
+                "updated_at": payload.get("updated_at", ""),
+            })
+            context_chunks.append(payload.get("chunk_text", ""))
+
+    if restricted_count > 0:
+        logger.info(f"Filtered {restricted_count} documents due to permission level")
+
+    # If no documents available after filtering, return appropriate message
+    if not sources:
+        elapsed_ms = (time.time() - start_time) * 1000
+        return {
+            "answer": "I don't have access to information that could answer this question at your permission level. Please contact an administrator if you need access to restricted documents.",
+            "sources": [],
+            "latency_ms": elapsed_ms,
+        }
 
     # Generate answer using LLM
     answer = await generate_answer(query, context_chunks, sources)

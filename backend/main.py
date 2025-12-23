@@ -132,6 +132,7 @@ class IngestResponse(BaseModel):
 class QueryRequest(BaseModel):
     query: str
     top_k: int = 5
+    role_level: int = 1  # 1=Employee, 2=Manager, 3=Admin
 
 
 class SourceResult(BaseModel):
@@ -220,7 +221,7 @@ async def ingest_documents(request: IngestRequest):
 @app.post("/query", response_model=QueryResponse)
 async def query_documents(request: QueryRequest):
     """Query the document index."""
-    result = await search_documents(request.query, request.top_k)
+    result = await search_documents(request.query, request.top_k, request.role_level)
 
     # Convert source dicts to SourceResult models
     sources = [

@@ -78,18 +78,13 @@ function ChatPane({ currentRole = 'employee', roleLevel = 1, onQueryComplete }) 
       const response = await fetch('http://localhost:8000/query', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: userMessage.content, top_k: 5 }),
+        body: JSON.stringify({ query: userMessage.content, top_k: 5, role_level: roleLevel }),
       })
       const data = await response.json()
 
-      // Filter sources based on role permissions
-      const filteredSources = data.sources.filter(source => {
-        const requiredLevel = DOCUMENT_PERMISSIONS[source.file] || 1
-        return roleLevel >= requiredLevel
-      })
-
-      // Count restricted sources
-      const restrictedCount = data.sources.length - filteredSources.length
+      // Sources are now filtered on the backend based on role_level
+      const filteredSources = data.sources
+      const restrictedCount = 0  // Backend handles filtering
 
       // Track query stats
       if (onQueryComplete) {
