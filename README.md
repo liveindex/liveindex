@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  The knowledge layer for AI applications and agents. Always in sync. Always secure.
+  The knowledge layer for AI applications and agents. Always in sync. Always secure. Deploy anywhere.
 </p>
 
 <p align="center">
