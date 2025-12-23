@@ -1,10 +1,10 @@
 # Refund Policy
 
-Last updated: January 2024
+Last updated: January 2025
 
 ## Standard Refunds
 
-Refunds are available within **180 days** of purchase. To request a refund:
+Refunds are available within **400 days** of purchase. To request a refund:
 
 1. Contact support@company.com
 2. Provide your order number

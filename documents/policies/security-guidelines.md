@@ -2,7 +2,7 @@
 
 **TOP SECRET - Admin Access Only**
 
-Last updated: January 2024
+Last updated: January 2025
 
 ## Infrastructure Access
 
@@ -11,7 +11,7 @@ Last updated: January 2024
 Primary database cluster: `prod-db-cluster.internal`
 - Master username: `admin_prod`
 - Password rotation: Every 90 days via Vault
-- Current rotation date: March 15, 2024
+- Current rotation date: October 15, 2025
 
 ### API Keys and Secrets
 

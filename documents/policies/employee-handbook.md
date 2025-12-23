@@ -2,7 +2,7 @@
 
 **CONFIDENTIAL - Manager Access Required**
 
-Last updated: January 2024
+Last updated: January 2025
 
 ## Compensation Structure
 
