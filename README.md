@@ -1,3 +1,5 @@
+<!-- GitHub Topics: rag, ai, vector-search, llm, knowledge-base, enterprise, open-source, real-time, embeddings, fastapi -->
+
 <p align="center">
   <img src="https://img.shields.io/badge/LiveIndex-Knowledge_Infrastructure-blue?style=for-the-badge" alt="LiveIndex" />
 </p>
@@ -22,7 +24,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" /></a>
+  <a href="https://github.com/liveindex/liveindex/stargazers"><img src="https://img.shields.io/github/stars/liveindex/liveindex?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/liveindex/liveindex/issues"><img src="https://img.shields.io/github/issues/liveindex/liveindex" alt="GitHub Issues" /></a>
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python" />
   <img src="https://img.shields.io/badge/react-19-blue.svg" alt="React" />
 </p>
@@ -36,6 +40,17 @@ LiveIndex is **real-time knowledge infrastructure** that keeps your AI grounded 
 **The problem:** Traditional knowledge pipelines are batch-oriented. Documents get stale. Answers become wrong. Users lose trust.
 
 **The solution:** LiveIndex watches your knowledge sources, detects changes instantly, re-indexes on the fly, and serves fresh answers with sub-100ms latency.
+
+---
+
+## Why LiveIndex?
+
+| Tool | Real-time Sync | Permissions | Open Source | Deploy Anywhere |
+|------|----------------|-------------|-------------|-----------------|
+| **LiveIndex** | ✅ | ✅ | ✅ | ✅ |
+| Glean | ⚠️ | ✅ | ❌ | ❌ |
+| Pinecone | ❌ | ❌ | ❌ | ❌ |
+| DIY RAG | ❌ | ❌ | N/A | ✅ |
 
 ---
 
