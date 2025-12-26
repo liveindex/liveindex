@@ -35,7 +35,7 @@
 
 ## What is LiveIndex?
 
-LiveIndex is **real-time knowledge infrastructure** that keeps your AI grounded in reality. When documents change, your AI knows immediately—not hours later, not after a batch job, but in seconds.
+LiveIndex is **real-time knowledge infrastructure** that keeps your AI grounded in reality. When documents change, your AI knows immediately-not hours later, not after a batch job, but in seconds.
 
 **The problem:** Traditional knowledge pipelines are batch-oriented. Documents get stale. Answers become wrong. Users lose trust.
 
@@ -69,14 +69,14 @@ LiveIndex is **real-time knowledge infrastructure** that keeps your AI grounded 
 
 ## Features
 
-- **Real-time Sync** — File watcher detects changes, re-indexes in milliseconds, not minutes
-- **Permission-Aware** — Role-based access control. Employees see public docs, admins see everything
-- **Agent-Ready** — Works as a tool for LangChain, LlamaIndex, or custom AI agents
-- **Deploy Anywhere** — Docker Compose for dev, Kubernetes for prod, air-gapped supported
-- **Connector Plugins** — Local files, Google Drive, S3, Notion, Slack, Confluence (extensible)
-- **Sub-100ms Queries** — Qdrant vector search with OpenAI embeddings
-- **WebSocket Updates** — Live notifications when documents change
-- **Open Source** — MIT licensed, fork it, extend it, contribute back
+- **Real-time Sync** - File watcher detects changes, re-indexes in milliseconds, not minutes
+- **Permission-Aware** - Role-based access control. Employees see public docs, admins see everything
+- **Agent-Ready** - Works as a tool for LangChain, LlamaIndex, or custom AI agents
+- **Deploy Anywhere** - Docker Compose for dev, Kubernetes for prod, air-gapped supported
+- **Connector Plugins** - Local files, Google Drive, S3, Notion, Slack, Confluence (extensible)
+- **Sub-100ms Queries** - Qdrant vector search with OpenAI embeddings
+- **WebSocket Updates** - Live notifications when documents change
+- **Open Source** - MIT licensed, fork it, extend it, contribute back
 
 ---
 
@@ -291,9 +291,9 @@ DOCUMENTS_PATH=./documents   # Path to watch for documents
 We welcome contributions! Here's how to get started:
 
 1. **Fork the repo** and create your branch from `main`
-2. **Make your changes** — add features, fix bugs, improve docs
-3. **Test your changes** — make sure everything works
-4. **Submit a PR** — describe what you changed and why
+2. **Make your changes** - add features, fix bugs, improve docs
+3. **Test your changes** - make sure everything works
+4. **Submit a PR** - describe what you changed and why
 
 ### Good First Issues
 
@@ -320,7 +320,7 @@ See [backend/connectors/README.md](backend/connectors/README.md) for the connect
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
